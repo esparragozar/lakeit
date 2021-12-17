@@ -3,7 +3,7 @@ view: stage_dim_time {
     ;;
 
   dimension: anio {
-    type: date_year
+    type: date
     sql: ${TABLE}.anio ;;
   }
 
