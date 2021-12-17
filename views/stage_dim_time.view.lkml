@@ -14,6 +14,7 @@ view: stage_dim_time {
       date,
       week,
       month,
+      month_name,
       quarter,
       year
     ]
