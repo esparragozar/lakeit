@@ -21,4 +21,10 @@ view: stage_items {
     type: count
     drill_fields: [item_name]
   }
+
+  measure: conteo_prod {
+    type: count
+
+
+  }
 }
