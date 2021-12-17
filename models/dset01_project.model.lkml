@@ -59,11 +59,18 @@ explore: stage_items {
   }
 
 }
-explore: stage_item_categories {}
+explore: stage_item_categories {
+  join:  stage_main_categories {
+    type: left_outer
+    sql_on: ${stage_main_categories.main_category_id} = ${stage_item_categories.main_category_id};;
 
-explore: stage_dim_time {}
+    relationship: many_to_one
 
-explore: stage_main_categories {}
+}
+
+}
+
+#explore: stage_main_categories {}
 
 #explore: stage_sales {}
 
