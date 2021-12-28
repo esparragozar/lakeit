@@ -75,7 +75,7 @@ explore: stage_items {
     type: left_outer
     sql_on: ${stage_items.category_id} = ${stage_item_categories.item_category_id};;
 
-    relationship: many_to_one
+    relationship: one_to_many
 
   }
 
@@ -85,7 +85,7 @@ explore: stage_item_categories {
     type: left_outer
     sql_on: ${stage_main_categories.main_category_id} = ${stage_item_categories.main_category_id};;
 
-    relationship: many_to_one
+    relationship: one_to_many
 
 }
 
