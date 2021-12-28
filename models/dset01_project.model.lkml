@@ -32,7 +32,7 @@ explore: stage_sales {
     type: left_outer
     sql_on: ${stage_items.item_id} = ${stage_sales.item_id};;
 
-    relationship: many_to_one
+    relationship: one_to_many
 
   }
 
