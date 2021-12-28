@@ -44,24 +44,24 @@ explore: stage_sales {
 
   }
 
+  join:  stage_main_categories {
+    type: left_outer
+    sql_on: ${stage_main_categories.main_category_id} = ${stage_item_categories.main_category_id};;
+
+    relationship: one_to_many
+
+  }
 
 
   join:  stage_item_categories {
-    type: inner
+    type: left_outer
     sql_on: ${stage_items.category_id} = ${stage_item_categories.item_category_id};;
 
-    relationship: many_to_one
+    relationship: one_to_many
 
   }
 
 
-  join:  stage_main_categories {
-    type: inner
-    sql_on: ${stage_main_categories.main_category_id} = ${stage_item_categories.main_category_id};;
-
-    relationship: many_to_one
-
-  }
 
 
 
