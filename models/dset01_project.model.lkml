@@ -29,7 +29,7 @@ explore: stage_sales {
   }
 
   join:  stage_items {
-    type: inner
+    type: left_outer
     sql_on: ${stage_items.item_id} = ${stage_sales.item_id};;
 
     relationship: many_to_one
@@ -72,7 +72,7 @@ explore: stage_sales {
 explore: stage_items {
 
   join:  stage_item_categories {
-    type: left_outer
+    type: inner
     sql_on: ${stage_items.category_id} = ${stage_item_categories.item_category_id};;
 
     relationship: many_to_one
@@ -80,9 +80,9 @@ explore: stage_items {
   }
 
 }
-explore: stage_main_categories {
-  join: stage_item_categories  {
-    type: left_outer
+explore:  stage_item_categories {
+  join: stage_main_categories  {
+    type: inner
     sql_on: ${stage_main_categories.main_category_id} = ${stage_item_categories.main_category_id};;
 
     relationship: many_to_one
