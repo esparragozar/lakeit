@@ -10,6 +10,7 @@ view: stage_main_categories {
   dimension: main_category_name {
     type: string
     sql: ${TABLE}.main_category_name ;;
+
   }
 
   measure: count {
