@@ -29,7 +29,7 @@ explore: stage_sales {
   }
 
   join:  stage_items {
-    type: left_outer
+    type: inner
     sql_on: ${stage_items.item_id} = ${stage_sales.item_id};;
 
     relationship: many_to_one
