@@ -79,27 +79,27 @@ explore: stage_sales {
 
 
 
-# explore: stage_items {
+ explore: stage_items {
 
-#   join:  stage_item_categories {
-#     type: inner
-#     sql_on: ${stage_items.category_id} = ${stage_item_categories.item_category_id};;
+   join:  stage_item_categories {
+     type: inner
+     sql_on: ${stage_items.category_id} = ${stage_item_categories.item_category_id};;
 
-#     relationship: many_to_one
+     relationship: many_to_one
 
-#   }
+   }
 
-# }
-# explore:  stage_item_categories {
-#   join: stage_main_categories  {
-#     type: inner
-#     sql_on: ${stage_main_categories.main_category_id} = ${stage_item_categories.main_category_id};;
+ }
+ explore:  stage_item_categories {
+   join: stage_main_categories  {
+     type: inner
+     sql_on: ${stage_main_categories.main_category_id} = ${stage_item_categories.main_category_id};;
 
-#     relationship: many_to_one
+     relationship: many_to_one
 
-# }
+ }
 
-# }
+ }
 
 #explore: stage_main_categories {}
 
