@@ -79,27 +79,60 @@ explore: stage_sales {
 
 
 
- explore: stage_items {
+# explore: stage_items {
 
-   join:  stage_item_categories {
-     type: inner
-     sql_on: ${stage_items.category_id} = ${stage_item_categories.item_category_id};;
+#   join:  stage_item_categories {
+#     type: inner
+#     sql_on: ${stage_items.category_id} = ${stage_item_categories.item_category_id};;
 
-     relationship: many_to_one
+#     relationship: many_to_one
 
-   }
+#   }
 
- }
- explore:  stage_item_categories {
-   join: stage_main_categories  {
-     type: inner
-     sql_on: ${stage_main_categories.main_category_id} = ${stage_item_categories.main_category_id};;
+# }
+# explore:  stage_item_categories {
+#   join: stage_main_categories  {
+#     type: inner
+#     sql_on: ${stage_main_categories.main_category_id} = ${stage_item_categories.main_category_id};;
 
-     relationship: many_to_one
+#     relationship: many_to_one
 
- }
+# }
 
- }
+# }
+
+explore: resultado_modelo_demo {
+  join:  stage_shops {
+  type: left_outer
+  sql_on: ${resultado_modelo_demo.tienda} = ${stage_shops.shop_id};;
+
+  relationship: many_to_one
+
+}
+
+
+  join:  stage_main_categories {
+    type: left_outer
+
+    sql_on: ${resultado_modelo_demo.categoria} = ${stage_main_categories.main_category_id};;
+
+    relationship: many_to_one
+
+}
+
+
+
+  join:  stage_dim_time {
+    type: left_outer
+
+    sql_on: ${resultado_modelo_demo.fecha} = ${stage_dim_time.fecha_date};;
+
+    relationship: many_to_one
+
+  }
+}
+
+
 
 #explore: stage_main_categories {}
 
