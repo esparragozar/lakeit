@@ -25,7 +25,61 @@ persist_with: dset01_analitica_default_datagroup
 # Typically, join parameters require that you define the join type, join relationship, and a sql_on clause.
 # Each joined view also needs to define a primary key.
 
-explore: resultado_modelo_demo {}
+explore: resultado_modelo_demo {
+  join:  stage_shops {
+    type: left_outer
+    sql_on: ${resultado_modelo_demo.tienda} = ${stage_shops.shop_id};;
+
+    relationship: many_to_one
+
+  }
+
+
+  join:  stage_main_categories {
+    type: left_outer
+
+    sql_on: ${resultado_modelo_demo.categoria} = ${stage_main_categories.main_category_id};;
+
+    relationship: many_to_one
+
+  }
+
+
+
+  join:  stage_dim_time {
+    type: left_outer
+
+    sql_on: ${resultado_modelo_demo.fecha} = ${stage_dim_time.fecha_date};;
+
+    relationship: many_to_one
+
+  }
+
+
+
+  join: stage_item_categories {
+
+    type: left_outer
+    sql_on: ${stage_item_categories.main_category_id} = ${stage_main_categories.main_category_id} ;;
+    relationship: many_to_one
+
+  }
+
+
+
+
+  join: stage_sales {
+
+    type: left_outer
+    sql_on: ${stage_shops.shop_id} = ${stage_sales.shop_id};;
+
+    relationship: many_to_one
+
+  }
+
+
+
+}
 
 explore: resultado_modelo_demo_arima_plus {
   join: resultado_modelo_demo_arima_plus__seasonal_periods {
