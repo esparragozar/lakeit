@@ -62,16 +62,7 @@ explore: stage_sales {
   }
 
 
-  join:  resultado_modelo_demo {
-    type: left_outer
-    sql_on: ${resultado_modelo_demo.tienda} = ${stage_shops.shop_id};;
 
-    relationship: many_to_one
-
-
-
-
-  }
 
 
 
@@ -138,6 +129,16 @@ explore: resultado_modelo_demo {
     type: left_outer
 
     sql_on: ${resultado_modelo_demo.fecha} = ${stage_dim_time.fecha_date};;
+
+    relationship: many_to_one
+
+  }
+
+
+  join: stage_sales {
+
+    type: left_outer
+    sql_on: ${stage_shops.shop_id} = ${stage_sales.shop_id};;
 
     relationship: many_to_one
 
