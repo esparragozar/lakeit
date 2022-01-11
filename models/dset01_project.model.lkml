@@ -62,6 +62,18 @@ explore: stage_sales {
   }
 
 
+  join:  resultado_modelo_demo {
+    type: left_outer
+    sql_on: ${resultado_modelo_demo.tienda} = ${stage_shops.shop_id};;
+
+    relationship: many_to_one
+
+
+
+
+  }
+
+
 
 
 
