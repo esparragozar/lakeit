@@ -33,7 +33,7 @@ view: resultado_modelo_demo {
   dimension: fecha {
     type: string
    # sql: ${TABLE}.Fecha ;;
-    sql: to_char(${TABLE}.Fecha, 'YYYY-MM-DD')
+    sql: to_char(to_date((${TABLE}.Fecha, 'YYYY-MM-DD') )
   }
 
 
