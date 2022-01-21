@@ -32,7 +32,8 @@ view: resultado_modelo_demo {
 
   dimension: fecha {
     type: string
-    sql: ${TABLE}.Fecha ;;
+  #  sql: ${TABLE}.Fecha ;;
+    sql: to_char(${TABLE}.created_at, 'YYYY-MM-DD')
   }
 
   dimension: pais {
