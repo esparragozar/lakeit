@@ -32,8 +32,8 @@ view: resultado_modelo_demo {
 
   dimension: fecha {
     type: string
-    sql: ${TABLE}.Fecha ;;
-   # sql: TO_CHAR(resultado_modelo_demo.Fecha,'YYYY-MM-DD') ;;
+    #sql: ${TABLE}.Fecha ;;
+    sql: TO_CHAR(resultado_modelo_demo.Fecha,'YYYY-MM-DD') ;;
 
 
   }
