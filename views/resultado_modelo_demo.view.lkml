@@ -35,7 +35,7 @@ view: resultado_modelo_demo {
    # sql: ${TABLE}.Fecha ;;
    # sql: TO_CHAR(resultado_modelo_demo.Fecha,'YYYY-MM-DD') ;;
    # html: {{ fecha de rendered_value |: "%m/%d/%Y" }} ;;
-    sql: DATE_FORMAT(resultado_modelo_demo.Fecha,’%m/%d/%Y’) ;;
+    sql: DATE_FORMAT(${TABLE}.Fecha,’%m/%d/%Y’) ;;
   }
 
 
