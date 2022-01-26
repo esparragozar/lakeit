@@ -36,6 +36,24 @@ view: resultado_modelo_demo {
 #CAST(${TABLE}.Fecha AS DATE)
   }
 
+
+  dimension_group: fecha4 {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      month_name,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}.fecha ;;
+  }
+
+
 # dimension_group: fecha3{
 # type: time
 # timeframes: [date, week, month, year]
