@@ -31,7 +31,7 @@ view: resultado_modelo_demo {
   }
 
   dimension: fecha {
-    type: date
+    type: string
    sql: TO_DATE(${TABLE}.Fecha)) ;;
 #CAST(${TABLE}.Fecha AS DATE)
 
