@@ -32,7 +32,7 @@ view: resultado_modelo_demo {
 
   dimension: fecha {
     type: string
-   sql: CAST(${TABLE}.Fecha) ;;
+   sql: from_unixtime(unix_timestamp(${TABLE}.Fecha,“YYYY/MM/DD”)) ;;
 #CAST(${TABLE}.Fecha AS DATE)
 
 #from_unixtime(unix_timestamp(’${TABLE}.Fecha’,“YYYY/MM/DD”))
