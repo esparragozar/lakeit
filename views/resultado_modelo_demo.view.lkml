@@ -31,8 +31,8 @@ view: resultado_modelo_demo {
   }
 
   dimension: fecha {
-    type: string
-   sql: TO_DATE(${TABLE}.Fecha),'DD-MM-YYYY') ;;
+    type: date
+   sql: TO_DATE(${TABLE}.Fecha)) ;;
 #CAST(${TABLE}.Fecha AS DATE)
 
 #from_unixtime(unix_timestamp(’${TABLE}.Fecha’,“YYYY/MM/DD”))
