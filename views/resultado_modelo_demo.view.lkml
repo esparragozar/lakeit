@@ -31,20 +31,26 @@ view: resultado_modelo_demo {
   }
 
   dimension: fecha {
-    type: date
-   sql: ${TABLE}.Fecha ;;
-
-  }
-
-
-  dimension: fecha2 {
     type: string
-    # sql: ${TABLE}.Fecha ;;
-    # sql: TO_CHAR(resultado_modelo_demo.Fecha,'YYYY-MM-DD') ;;
-    # html: {{ fecha de rendered_value |: "%m/%d/%Y" }} ;;
-    # sql: DATE_FORMAT(${TABLE}.Fecha,’%m/%d/%Y’) ;;
-    sql: to_char(${TABLE}.Fecha, 'MM/DD/YYYY') ;;
+   sql: CAST(${TABLE}.Fecha AS DATE) ;;
+#CAST(${TABLE}.Fecha AS DATE)
   }
+
+# dimension_group: fecha3{
+# type: time
+# timeframes: [date, week, month, year]
+# datatype: date
+# sql: ${TABLE}.Fecha3
+# }
+
+  # dimension: fecha2 {
+  #   type: string
+  #   # sql: ${TABLE}.Fecha ;;
+  #   # sql: TO_CHAR(resultado_modelo_demo.Fecha,'YYYY-MM-DD') ;;
+  #   # html: {{ fecha de rendered_value |: "%m/%d/%Y" }} ;;
+  #   # sql: DATE_FORMAT(${TABLE}.Fecha,’%m/%d/%Y’) ;;
+  #   sql: to_char(${TABLE}.Fecha, 'MM/DD/YYYY') ;;
+  # }
 
   dimension: pais {
     type: string
