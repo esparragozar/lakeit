@@ -32,7 +32,7 @@ view: resultado_modelo_demo {
 
   dimension: fecha {
     type: string
-   sql: CAST(CONCAT(<month_string_column>, "-01"), DATE)  ;;
+   sql: CAST(CONCAT(${TABLE}.Fecha, "-01"), DATE)  ;;
 #CAST(${TABLE}.Fecha AS DATE)
 
 #from_unixtime(unix_timestamp(’${TABLE}.Fecha’,“YYYY/MM/DD”))
