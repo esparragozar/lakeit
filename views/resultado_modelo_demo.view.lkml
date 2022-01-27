@@ -39,7 +39,7 @@ view: resultado_modelo_demo {
   }
 
 
-  dimension_group: fecha4 {
+  dimension_group: Fecha_Group {
     type: time
     timeframes: [
       raw,
