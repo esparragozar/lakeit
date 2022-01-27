@@ -35,7 +35,7 @@ explore: resultado_modelo_demo {
   }
 
 
-
+}
   # join: stage_sales {
 
   #   type: left_outer
@@ -90,7 +90,7 @@ explore: resultado_modelo_demo {
 
 
 
-}
+
 
 explore: resultado_modelo_demo_arima_plus {
   join: resultado_modelo_demo_arima_plus__seasonal_periods {
