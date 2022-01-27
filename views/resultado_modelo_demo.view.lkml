@@ -52,7 +52,7 @@ view: resultado_modelo_demo {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.fecha ;;
+    sql: PARSE_DATE('%d/%m/%Y',  ${TABLE}.FECHA) ;;
   }
 
 
