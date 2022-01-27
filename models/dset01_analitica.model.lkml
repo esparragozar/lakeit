@@ -41,7 +41,7 @@ explore: resultado_modelo_demo {
     type: left_outer
     sql_on: ${resultado_modelo_demo.fecha} = ${stage_sales.date_sale_date};;
 
-    relationship: many_to_one
+    relationship: many_to_many
 
   }
 
