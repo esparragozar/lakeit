@@ -35,6 +35,17 @@ explore: resultado_modelo_demo {
   }
 
 
+
+  join: stage_sales {
+
+    type: left_outer
+    sql_on: ${resultado_modelo_demo.fecha} = ${stage_sales.date_sale_date};;
+
+    relationship: many_to_one
+
+  }
+
+
   join:  stage_main_categories {
     type: left_outer
 
@@ -46,14 +57,14 @@ explore: resultado_modelo_demo {
 
 
 
-  join:  stage_dim_time {
-    type: left_outer
+  # join:  stage_dim_time {
+  #   type: left_outer
 
-    sql_on: ${resultado_modelo_demo.fecha} = ${stage_dim_time.fecha_date};;
+  #   sql_on: ${resultado_modelo_demo.fecha} = ${stage_dim_time.fecha_date};;
 
-    relationship: many_to_one
+  #   relationship: many_to_one
 
-  }
+  # }
 
 
 
@@ -68,14 +79,14 @@ explore: resultado_modelo_demo {
 
 
 
-  join: stage_sales {
+  # join: stage_sales {
 
-    type: left_outer
-    sql_on: ${stage_shops.shop_id} = ${stage_sales.shop_id};;
+  #   type: left_outer
+  #   sql_on: ${stage_shops.shop_id} = ${stage_sales.shop_id};;
 
-    relationship: many_to_one
+  #   relationship: many_to_one
 
-  }
+  # }
 
 
 
