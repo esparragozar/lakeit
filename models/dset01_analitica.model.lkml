@@ -30,7 +30,7 @@ explore: resultado_modelo_demo {
     type: left_outer
     sql_on: MIN(${resultado_modelo_demo.fecha}) = MIN(${stage_sales.date_sale_date});;
 
-    relationship: many_to_many
+    relationship: one_to_one
 
   }
 
