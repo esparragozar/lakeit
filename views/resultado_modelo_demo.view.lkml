@@ -87,6 +87,14 @@ view: resultado_modelo_demo {
     sql: ${TABLE}.Ventas ;;
   }
 
+  measure: total_ventas {
+    type: sum
+    value_format_name: usd
+    sql: ${TABLE}.Ventas  ;;
+  }
+
+
+
   measure: count {
     type: count
     drill_fields: []
