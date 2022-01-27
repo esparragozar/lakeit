@@ -28,9 +28,9 @@ persist_with: dset01_analitica_default_datagroup
 explore: resultado_modelo_demo {
   join:  stage_sales {
     type: left_outer
-    sql_on: MIN(${resultado_modelo_demo.fecha}) = MIN(${stage_sales.date_sale_date});;
+    sql_on: ${resultado_modelo_demo.Fecha_Group_month} = ${stage_sales.date_sale_month};;
 
-    relationship: one_to_one
+    relationship: many_to_many
 
   }
 
