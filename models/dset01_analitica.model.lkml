@@ -26,34 +26,34 @@ persist_with: dset01_analitica_default_datagroup
 # Each joined view also needs to define a primary key.
 
 explore: resultado_modelo_demo {
-  join:  stage_shops {
-    type: left_outer
-    sql_on: ${resultado_modelo_demo.tienda} = ${stage_shops.shop_id};;
-
-    relationship: many_to_one
-
-  }
-
-
-
-  join: stage_sales {
-
+  join:  stage_sales {
     type: left_outer
     sql_on: ${resultado_modelo_demo.fecha} = ${stage_sales.date_sale_date};;
 
-    relationship: many_to_many
-
-  }
-
-
-  join:  stage_main_categories {
-    type: left_outer
-
-    sql_on: ${resultado_modelo_demo.categoria} = ${stage_main_categories.main_category_id};;
-
     relationship: many_to_one
 
   }
+
+
+
+  # join: stage_sales {
+
+  #   type: left_outer
+  #   sql_on: ${resultado_modelo_demo.fecha} = ${stage_sales.date_sale_date};;
+
+  #   relationship: many_to_many
+
+  # }
+
+
+  # join:  stage_main_categories {
+  #   type: left_outer
+
+  #   sql_on: ${resultado_modelo_demo.categoria} = ${stage_main_categories.main_category_id};;
+
+  #   relationship: many_to_one
+
+  # }
 
 
 
@@ -68,13 +68,13 @@ explore: resultado_modelo_demo {
 
 
 
-  join: stage_item_categories {
+  # join: stage_item_categories {
 
-    type: left_outer
-    sql_on: ${stage_item_categories.main_category_id} = ${stage_main_categories.main_category_id} ;;
-    relationship: many_to_one
+  #   type: left_outer
+  #   sql_on: ${stage_item_categories.main_category_id} = ${stage_main_categories.main_category_id} ;;
+  #   relationship: many_to_one
 
-  }
+  # }
 
 
 
