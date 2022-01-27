@@ -73,7 +73,7 @@ explore: resultado_modelo_demo {
     type: left_outer
     sql_on: ${stage_shops.shop_id} = ${stage_sales.shop_id};;
 
-    relationship: one_to_many
+    relationship: many_to_one
 
   }
 
