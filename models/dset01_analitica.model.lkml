@@ -35,25 +35,25 @@ explore: resultado_modelo_demo {
   }
 
 
-}
-  # join: stage_sales {
 
-  #   type: left_outer
-  #   sql_on: ${resultado_modelo_demo.fecha} = ${stage_sales.date_sale_date};;
+   join: stage_shops {
 
-  #   relationship: many_to_many
+     type: left_outer
+     sql_on: ${stage_shops.shop_id} = ${resultado_modelo_demo.tienda};;
 
-  # }
+     relationship: many_to_one
+
+   }
 
 
-  # join:  stage_main_categories {
-  #   type: left_outer
+  join:  stage_main_categories {
+    type: left_outer
 
-  #   sql_on: ${resultado_modelo_demo.categoria} = ${stage_main_categories.main_category_id};;
+    sql_on: ${resultado_modelo_demo.categoria} = ${stage_main_categories.main_category_id};;
 
-  #   relationship: many_to_one
+    relationship: many_to_one
 
-  # }
+  }
 
 
 
@@ -68,13 +68,13 @@ explore: resultado_modelo_demo {
 
 
 
-  # join: stage_item_categories {
+ join: stage_item_categories {
 
-  #   type: left_outer
-  #   sql_on: ${stage_item_categories.main_category_id} = ${stage_main_categories.main_category_id} ;;
-  #   relationship: many_to_one
+   type: left_outer
+   sql_on: ${stage_item_categories.main_category_id} = ${stage_main_categories.main_category_id} ;;
+   relationship: many_to_one
 
-  # }
+ }
 
 
 
@@ -89,7 +89,7 @@ explore: resultado_modelo_demo {
   # }
 
 
-
+}
 
 
 explore: resultado_modelo_demo_arima_plus {
