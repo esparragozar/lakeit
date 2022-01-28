@@ -28,7 +28,7 @@ persist_with: dset01_analitica_default_datagroup
 explore: resultado_modelo_demo {
   join:  stage_sales {
     type: left_outer
-    sql_on: ${resultado_modelo_demo.Fecha_Group_month} = ${stage_sales._partitiondate_month};;
+    sql_on: ${resultado_modelo_demo.tienda} = ${stage_sales.shop_id};;
 
     relationship: many_to_many
 
