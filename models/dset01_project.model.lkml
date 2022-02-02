@@ -111,58 +111,6 @@ explore: stage_sales {
 
 # }
 
-explore: resultado_modelo_demo {
-  join:  stage_shops {
-  type: left_outer
-  sql_on: ${resultado_modelo_demo.tienda} = ${stage_shops.shop_id};;
-
-  relationship: many_to_one
-
-}
-
-
-  join:  stage_main_categories {
-    type: left_outer
-
-    sql_on: ${resultado_modelo_demo.categoria} = ${stage_main_categories.main_category_id};;
-
-    relationship: many_to_one
-
-}
-
-
-
-  join:  stage_dim_time {
-    type: left_outer
-
-    sql_on: ${resultado_modelo_demo.fecha} = ${stage_dim_time.fecha_date};;
-
-    relationship: many_to_one
-
-  }
-
-
-
-join: stage_item_categories {
-
-  type: left_outer
-  sql_on: ${stage_item_categories.main_category_id} = ${stage_main_categories.main_category_id} ;;
-  relationship: many_to_one
-
-}
-
-
-
-
-  join: stage_sales {
-
-    type: left_outer
-    sql_on: ${stage_shops.shop_id} = ${stage_sales.shop_id};;
-
-    relationship: many_to_one
-
-  }
-}
 
 
 
