@@ -63,14 +63,14 @@ view: resultado_modelo_demo {
 # sql: ${TABLE}.Fecha3
 # }
 
-  # dimension: fecha2 {
-  #   type: string
-  #   # sql: ${TABLE}.Fecha ;;
-  #   # sql: TO_CHAR(resultado_modelo_demo.Fecha,'YYYY-MM-DD') ;;
-  #   # html: {{ fecha de rendered_value |: "%m/%d/%Y" }} ;;
-  #   # sql: DATE_FORMAT(${TABLE}.Fecha,’%m/%d/%Y’) ;;
-  #   sql: to_char(${TABLE}.Fecha, 'MM/DD/YYYY') ;;
-  # }
+ dimension: IdFecha {
+   type: string
+   # sql: ${TABLE}.Fecha ;;
+   # sql: TO_CHAR(resultado_modelo_demo.Fecha,'YYYY-MM-DD') ;;
+   # html: {{ fecha de rendered_value |: "%m/%d/%Y" }} ;;
+   # sql: DATE_FORMAT(${TABLE}.Fecha,’%m/%d/%Y’) ;;
+   sql: to_char(${TABLE}.Fecha, 'YYYYMM') ;;
+ }
 
   dimension: pais {
     type: string
