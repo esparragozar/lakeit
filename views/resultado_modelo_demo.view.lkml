@@ -56,20 +56,14 @@ view: resultado_modelo_demo {
   }
 
 
-# dimension_group: fecha3{
-# type: time
-# timeframes: [date, week, month, year]
-# datatype: date
-# sql: ${TABLE}.Fecha3
-# }
 
- dimension: IdFecha {
-   type: string
+ dimension: ID_DATE {
+   type: number
    # sql: ${TABLE}.Fecha ;;
    # sql: TO_CHAR(resultado_modelo_demo.Fecha,'YYYY-MM-DD') ;;
    # html: {{ fecha de rendered_value |: "%m/%d/%Y" }} ;;
    # sql: DATE_FORMAT(${TABLE}.Fecha,’%m/%d/%Y’) ;;
-   sql: to_char(${TABLE}.Fecha, 'YYYYMM') ;;
+   sql: (FORMAT_DATE('%Y%m', PARSE_DATE('%d/%m/%Y',  ${TABLE}.FECHA) ));;
  }
 
   dimension: pais {

@@ -71,6 +71,12 @@ view: stage_sales {
     sql: ${TABLE}.shop_id ;;
   }
 
+  dimension: ID_DATE {
+    type: number
+    sql: (FORMAT_TIMESTAMP('%Y%m', ${TABLE}.date_sale  ));;
+  }
+
+
   measure: count {
     type: count
     drill_fields: []

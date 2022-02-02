@@ -29,7 +29,7 @@ explore: resultado_modelo_demo {
   join:  stage_sales {
     type: left_outer
     sql_on: ${resultado_modelo_demo.tienda} = ${stage_sales.shop_id}
-    AND ${resultado_modelo_demo.Fecha_Group_month} = ${stage_sales.date_sale_month};;
+    AND ${resultado_modelo_demo.ID_DATE} = ${stage_sales.ID_DATE};;
 
     relationship: many_to_many
 
