@@ -72,7 +72,7 @@ view: stage_sales {
   }
 
   dimension: ID_DATE {
-    type: number
+    type: string
     sql: (FORMAT_TIMESTAMP('%Y%m', ${TABLE}.date_sale  ));;
   }
 

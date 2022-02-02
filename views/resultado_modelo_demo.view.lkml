@@ -58,7 +58,7 @@ view: resultado_modelo_demo {
 
 
  dimension: ID_DATE {
-   type: number
+   type: string
    # sql: ${TABLE}.Fecha ;;
    # sql: TO_CHAR(resultado_modelo_demo.Fecha,'YYYY-MM-DD') ;;
    # html: {{ fecha de rendered_value |: "%m/%d/%Y" }} ;;
