@@ -23,6 +23,13 @@ view: stage_dim_time {
     sql: ${TABLE}.fecha ;;
   }
 
+  dimension: ID_DATE {
+    type: string
+    sql: FORMAT_DATE("%Y%m", FECHA) ;;
+  }
+
+
+
   dimension: mes {
     type: string
     sql: ${TABLE}.mes ;;
