@@ -84,19 +84,19 @@ explore: stage_sales {
 explore: resultado_modelo_demo {
 
 
-  join: stage_dim_time{
+  # join: stage_dim_time{
 
-    type: left_outer
-    sql_on: ${resultado_modelo_demo.ID_DATE} = ${stage_dim_time.ID_DATE};;
+  #   type: left_outer
+  #   sql_on: ${resultado_modelo_demo.ID_DATE} = ${stage_dim_time.ID_DATE};;
 
-    relationship: many_to_many
+  #   relationship: many_to_many
 
-  }
+  # }
 
 
  join:  stage_sales {
-   type: left_outer
-   sql_on: ${stage_dim_time.ID_DATE} = ${stage_sales.ID_DATE};;
+   type: inner
+   sql_on: ${resultado_modelo_demo.ID_DATE} = ${stage_sales.ID_DATE};;
 
    relationship: many_to_many
 
