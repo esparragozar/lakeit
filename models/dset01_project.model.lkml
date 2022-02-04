@@ -95,7 +95,7 @@ explore: resultado_modelo_demo {
 
 
  join:  stage_sales {
-   type: inner
+   type: left_outer
    sql_on: ${resultado_modelo_demo.ID_DATE} = ${stage_sales.ID_DATE};;
 
    relationship: many_to_many
@@ -107,7 +107,8 @@ explore: resultado_modelo_demo {
   join: stage_shops {
 
     type: left_outer
-    sql_on: ${stage_shops.shop_id} = ${resultado_modelo_demo.tienda};;
+    sql_on: ${stage_shops.shop_id} = ${resultado_modelo_demo.tienda}
+    AND ${stage_shops.shop_id} = ${stage_sales.shop_id};;
 
     relationship: many_to_one
 
