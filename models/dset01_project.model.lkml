@@ -129,7 +129,8 @@ explore: resultado_modelo_demo {
   join: stage_item_categories {
 
     type: left_outer
-    sql_on: ${stage_item_categories.main_category_id} = ${stage_main_categories.main_category_id} ;;
+    sql_on: ${stage_item_categories.main_category_id} = ${stage_main_categories.main_category_id}
+    and ${stage_item_categories.item_category_id} = ${stage_item_categories.item_category_id};;
     relationship: many_to_one
 
   }
