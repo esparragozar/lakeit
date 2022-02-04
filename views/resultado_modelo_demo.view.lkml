@@ -63,7 +63,7 @@ view: resultado_modelo_demo {
    # sql: TO_CHAR(resultado_modelo_demo.Fecha,'YYYY-MM-DD') ;;
    # html: {{ fecha de rendered_value |: "%m/%d/%Y" }} ;;
    # sql: DATE_FORMAT(${TABLE}.Fecha,’%m/%d/%Y’) ;;
-   sql: (FORMAT_DATE('%Y%m', PARSE_DATE('%d/%m/%Y',  ${TABLE}.FECHA) ));;
+   sql: (FORMAT_DATE('%Y%m%d', PARSE_DATE('%d/%m/%Y',  ${TABLE}.FECHA) ));;
  }
 
   dimension: pais {
