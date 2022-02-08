@@ -90,7 +90,7 @@ from: resultado_modelo_demo
   type: left_outer
   sql_on: ${Calendario.ID_DATE} = ${Pronostico.ID_DATE}  ;;
 
-  relationship: one_to_many
+  relationship: many_to_many
 
 }
 
