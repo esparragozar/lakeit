@@ -96,10 +96,10 @@ join: stage_dim_time {
 
 
   join:  stage_sales {
-   type: full_outer
+   type: left_outer
    sql_on: ${stage_dim_time.ID_DATE} = ${stage_sales.ID_DATE};;
 
-   relationship: many_to_one
+   relationship: one_to_many
 
  }
 
