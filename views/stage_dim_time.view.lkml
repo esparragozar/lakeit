@@ -26,6 +26,7 @@ view: stage_dim_time {
   dimension: ID_DATE {
     type: string
     sql: FORMAT_DATE("%Y%m%d", ${TABLE}.fecha) ;;
+    primary_key: yes
   }
 
 
