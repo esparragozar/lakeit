@@ -165,3 +165,66 @@ from: stage_shops
 
 
   }
+
+
+
+explore: Ventas {
+  from:  stage_sales
+  join: stage_shops {
+
+    type: left_outer
+    sql_on: ${stage_shops.shop_id} = ${Ventas.shop_id};;
+
+    relationship: many_to_one
+
+  }
+
+  join:  stage_items {
+    type: left_outer
+    sql_on: ${stage_items.item_id} = ${Ventas.item_id};;
+
+    relationship: many_to_one
+
+  }
+
+  join:  stage_dim_time {
+    type: left_outer
+    sql_on: ${stage_dim_time.ID_DATE} = ${Ventas.ID_DATE};;
+
+    relationship: many_to_one
+
+  }
+
+  join:  stage_main_categories {
+    type: left_outer
+    sql_on:  ${stage_item_categories.main_category_id}  = ${stage_main_categories.main_category_id};;
+
+    relationship: many_to_one
+
+  }
+
+
+  join:  stage_item_categories {
+    type: left_outer
+    sql_on: ${stage_items.category_id} = ${stage_item_categories.item_category_id};;
+
+    relationship: many_to_one
+
+  }
+
+
+
+
+  join:  resultado_modelo_demo {
+    type: left_outer
+    sql_on: ${resultado_modelo_demo.ID_DATE} = ${Ventas.ID_DATE};;
+
+    relationship: many_to_many
+
+  }
+
+
+
+
+
+}
