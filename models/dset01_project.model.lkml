@@ -82,27 +82,36 @@ explore: stage_sales {
 
 
 explore: resultado_modelo_demo {
+from:  resultado_modelo_demo
 
 
-
-join: stage_dim_time {
+join: Calendario {
 from: stage_dim_time
-  type: inner
-  sql_on:${stage_dim_time.ID_DATE} = ${resultado_modelo_demo.ID_DATE}  ;;
+  type: left_outer
+  sql_on: ${Calendario.ID_DATE} = ${resultado_modelo_demo.ID_DATE}  ;;
 
   relationship: many_to_one
 
 }
 
 
-  join:  stage_sales {
+  join:  Ventas {
     from:  stage_sales
-   type: inner
-   sql_on: ${stage_dim_time.ID_DATE} = ${stage_sales.ID_DATE};;
+   type: left_outer
+   sql_on: ${Calendario.ID_DATE} = ${Ventas.ID_DATE};;
 
    relationship: one_to_many
 
  }
+#
+#view_name: stage_sales {
+#
+#  dimension: ID_DATE {
+#    primary_key: no
+#
+#  }
+
+#}
 
 
 

@@ -74,6 +74,8 @@ view: stage_sales {
   dimension: ID_DATE {
     type: string
     sql: (FORMAT_TIMESTAMP('%Y%m%d', ${TABLE}.date_sale  ));;
+
+    primary_key: no
   }
 
 
