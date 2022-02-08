@@ -126,17 +126,23 @@ from: stage_dim_time
 
 
 
-##  join: stage_shops {
-##
-##    type: left_outer
-##    sql_on: ${stage_shops.shop_id} = ${resultado_modelo_demo.tienda}
-##    AND ${stage_shops.shop_id} = ${stage_sales.shop_id};;
-##
-##    relationship: many_to_one
-##
-##  }
+  join: Tiendas1 {
+from: stage_shops
+    type: left_outer
+    sql_on: ${Tiendas1.shop_id} = ${Ventas.shop_id};;
 
+    relationship: one_to_many
 
+  }
+
+  join: Tiendas2 {
+    from: stage_shops
+    type: left_outer
+    sql_on: ${Tiendas2.shop_id} = ${resultado_modelo_demo.tienda};;
+
+    relationship: many_to_one
+
+  }
 ##  join:  stage_main_categories {
 ##    type: left_outer
 ##
