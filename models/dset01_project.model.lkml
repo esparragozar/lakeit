@@ -131,7 +131,7 @@ from: stage_shops
     type: left_outer
     sql_on: ${Tiendas1.shop_id} = ${Ventas.shop_id};;
 
-    relationship: one_to_many
+    relationship: many_to_one
 
   }
 
