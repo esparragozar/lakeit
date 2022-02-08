@@ -89,7 +89,7 @@ join: Pronostico {
 from: resultado_modelo_demo
   type: left_outer
   sql_on: ${Calendario.ID_DATE} = ${Pronostico.ID_DATE}  ;;
-
+fields: [Pronostico.fecha,Pronostico.ventas]
   relationship: many_to_one
 
 }
@@ -99,7 +99,7 @@ from: resultado_modelo_demo
     from:  stage_sales
    type: left_outer
    sql_on: ${Calendario.ID_DATE} = ${Ventas.ID_DATE};;
-
+    fields: [Ventas.item_price,Ventas.date_sale_date]
    relationship: one_to_many
 
  }
