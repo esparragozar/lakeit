@@ -90,7 +90,7 @@ from: resultado_modelo_demo
   type: left_outer
   sql_on: ${Calendario.ID_DATE} = ${Pronostico.ID_DATE}  ;;
 fields: [Pronostico.fecha,Pronostico.ventas]
-  relationship: many_to_one
+  relationship: one_to_many
 
 }
 
