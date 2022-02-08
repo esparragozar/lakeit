@@ -223,7 +223,14 @@ explore: Ventas {
 
   }
 
+  join:  Categoria {
+    from:  stage_main_categories
+    type: left_outer
+    sql_on: ${Categoria.main_category_id} = ${resultado_modelo_demo.categoria};;
 
+    relationship: one_to_many
+
+  }
 
 
 
