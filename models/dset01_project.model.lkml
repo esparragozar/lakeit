@@ -89,7 +89,7 @@ join: resultado_modelo_demo{
   type: left_outer
   sql_on: ${resultado_modelo_demo.ID_DATE} = ${stage_dim_time.ID_DATE} ;;
 
-  relationship: many_to_one
+  relationship: one_to_many
 
 }
 
@@ -98,7 +98,7 @@ join: resultado_modelo_demo{
    type: left_outer
    sql_on: ${stage_sales.ID_DATE} = ${stage_dim_time.ID_DATE};;
 
-   relationship: one_to_many
+   relationship: many_to_one
 
  }
 
