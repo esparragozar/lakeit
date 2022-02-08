@@ -86,7 +86,7 @@ explore: stage_dim_time {
 
 join: resultado_modelo_demo{
 
-  type: left_outer
+  type: full_outer
   sql_on: ${resultado_modelo_demo.ID_DATE} = ${stage_dim_time.ID_DATE} ;;
 
   relationship: many_to_one
@@ -95,7 +95,7 @@ join: resultado_modelo_demo{
 
 
   join:  stage_sales {
-   type: left_outer
+   type: full_outer
    sql_on: ${stage_sales.ID_DATE} = ${stage_dim_time.ID_DATE};;
 
    relationship: many_to_one
