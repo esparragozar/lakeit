@@ -81,16 +81,16 @@ explore: stage_sales {
 
 
 
-explore: resultado_modelo_demo {
-from:  resultado_modelo_demo
+explore: Calendario {
+from:  stage_dim_time
 
 
-join: Calendario {
-from: stage_dim_time
+join: Pronostico {
+from: resultado_modelo_demo
   type: left_outer
-  sql_on: ${Calendario.ID_DATE} = ${resultado_modelo_demo.ID_DATE}  ;;
+  sql_on: ${Calendario.ID_DATE} = ${Pronostico.ID_DATE}  ;;
 
-  relationship: many_to_one
+  relationship: one_to_many
 
 }
 
@@ -126,23 +126,7 @@ from: stage_dim_time
 
 
 
-  join: Tiendas1 {
-from: stage_shops
-    type: left_outer
-    sql_on: ${Tiendas1.shop_id} = ${Ventas.shop_id};;
 
-    relationship: many_to_one
-
-  }
-
-  join: Tiendas2 {
-    from: stage_shops
-    type: left_outer
-    sql_on: ${Tiendas2.shop_id} = ${resultado_modelo_demo.tienda};;
-
-    relationship: many_to_one
-
-  }
 ##  join:  stage_main_categories {
 ##    type: left_outer
 ##
