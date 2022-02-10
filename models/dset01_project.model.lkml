@@ -66,7 +66,7 @@ explore: stage_sales {
 
     join:  resultado_modelo_demo {
       type: left_outer
-      sql_on: ${resultado_modelo_demo.fecha} = ${stage_sales.date_sale_date};;
+      sql_on: ${stage_sales.ID_DATE} = ${resultado_modelo_demo.ID_DATE};;
 
       relationship: many_to_many
 
