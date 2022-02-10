@@ -87,7 +87,7 @@ from:  stage_dim_time
 
 join: Pronostico {
 from: resultado_modelo_demo
-  type: full_outer
+ # type: full_outer
   sql_on: ${Calendario.ID_DATE} = ${Pronostico.ID_DATE}  ;;
 #fields: [Pronostico.fecha,Pronostico.ventas]
   relationship: one_to_many
@@ -97,7 +97,7 @@ from: resultado_modelo_demo
 
   join:  Ventas {
     from:  stage_sales
-   type: full_outer
+  # type: full_outer
    sql_on: ${Calendario.ID_DATE} = ${Ventas.ID_DATE};;
  #   fields: [Ventas.item_price,Ventas.date_sale_date]
    relationship: one_to_many
@@ -108,7 +108,7 @@ from: resultado_modelo_demo
 
   join:  Tiendas {
     from:  stage_shops
-    type: full_outer
+   # type: full_outer
     sql_on: ${Tiendas.shop_id} = ${Ventas.shop_id};;
 
     relationship: one_to_many
