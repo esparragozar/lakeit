@@ -65,7 +65,7 @@ view: resultado_modelo_demo {
    # sql: DATE_FORMAT(${TABLE}.Fecha,’%m/%d/%Y’) ;;
    sql: (FORMAT_DATE('%Y%m%d', PARSE_DATE('%d/%m/%Y',  ${TABLE}.FECHA) ));;
 
-  primary_key: yes
+  primary_key: no
  }
 
   dimension: pais {
