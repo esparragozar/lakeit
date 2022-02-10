@@ -87,7 +87,7 @@ from:  stage_dim_time
 
 join: Pronostico {
 from: resultado_modelo_demo
-  type: left_outer
+  type: full_outer
   sql_on: ${Calendario.ID_DATE} = ${Pronostico.ID_DATE}  ;;
 #fields: [Pronostico.fecha,Pronostico.ventas]
   relationship: one_to_many
