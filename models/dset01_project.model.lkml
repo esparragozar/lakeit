@@ -89,7 +89,7 @@ join: Pronostico {
 from: resultado_modelo_demo
   type: left_outer
   sql_on: ${Calendario.ID_DATE} = ${Pronostico.ID_DATE}  ;;
-fields: [Pronostico.fecha,Pronostico.ventas]
+#fields: [Pronostico.fecha,Pronostico.ventas]
   relationship: one_to_many
 
 }
@@ -99,22 +99,22 @@ fields: [Pronostico.fecha,Pronostico.ventas]
     from:  stage_sales
    type: left_outer
    sql_on: ${Calendario.ID_DATE} = ${Ventas.ID_DATE};;
-    fields: [Ventas.item_price,Ventas.date_sale_date]
+ #   fields: [Ventas.item_price,Ventas.date_sale_date]
    relationship: one_to_many
 
  }
 
 
 
-  join:  Tiendas {
-    from:  stage_shops
-    type: left_outer
-    sql_on: ${Tiendas.shop_id} = ${Ventas.shop_id}
-    and &${Tiendas.shop_id} = ${Pronostico.tienda};;
-
-    relationship: one_to_many
-
-  }
+##  join:  Tiendas {
+##    from:  stage_shops
+##    type: left_outer
+##    sql_on: ${Tiendas.shop_id} = ${Ventas.shop_id}
+##    and &${Tiendas.shop_id} = ${Pronostico.tienda};;
+##
+##    relationship: one_to_many
+##
+##  }
 
 
 #
