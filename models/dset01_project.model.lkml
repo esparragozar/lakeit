@@ -100,7 +100,7 @@ from: resultado_modelo_demo
    type: left_outer
    sql_on: ${Calendario.ID_DATE} = ${Ventas.ID_DATE};;
  #   fields: [Ventas.item_price,Ventas.date_sale_date]
-   relationship: many_to_one
+   relationship: one_to_many
 
  }
 
@@ -112,7 +112,7 @@ from: resultado_modelo_demo
     sql_on: ${Tiendas.shop_id} = ${Ventas.shop_id}
     and &${Tiendas.shop_id} = ${Pronostico.tienda};;
 
-    relationship: many_to_one
+    relationship: one_to_many
 
   }
 
