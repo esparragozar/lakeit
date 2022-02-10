@@ -109,7 +109,8 @@ fields: [Pronostico.fecha,Pronostico.ventas]
   join:  Tiendas {
     from:  stage_shops
     type: left_outer
-    sql_on: ${Tiendas.shop_id} = ${Ventas.shop_id};;
+    sql_on: ${Tiendas.shop_id} = ${Ventas.shop_id}
+    and &${Tiendas.shop_id} = ${Pronostico.tienda};;
 
     relationship: one_to_many
 
