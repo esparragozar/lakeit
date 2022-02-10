@@ -97,7 +97,7 @@ from: resultado_modelo_demo
 
   join:  Ventas {
     from:  stage_sales
-  # type: full_outer
+   type: left_outer
    sql_on: ${Calendario.ID_DATE} = ${Ventas.ID_DATE};;
  #   fields: [Ventas.item_price,Ventas.date_sale_date]
    relationship: one_to_many
