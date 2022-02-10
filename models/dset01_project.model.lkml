@@ -111,7 +111,7 @@ from: resultado_modelo_demo
    # type: full_outer
     sql_on: ${Tiendas.shop_id} = ${Ventas.shop_id};;
 
-    relationship: one_to_many
+    relationship: many_to_one
 
   }
 
