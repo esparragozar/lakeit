@@ -109,8 +109,7 @@ from: resultado_modelo_demo
   join:  Tiendas {
     from:  stage_shops
     type: left_outer
-    sql_on: ${Tiendas.shop_id} = ${Ventas.shop_id}
-    and &${Tiendas.shop_id} = ${Pronostico.tienda};;
+    sql_on: ${Tiendas.shop_id} = ${Ventas.shop_id};;
 
     relationship: one_to_many
 
