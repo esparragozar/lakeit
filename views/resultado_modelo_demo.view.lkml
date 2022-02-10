@@ -64,6 +64,8 @@ view: resultado_modelo_demo {
    # html: {{ fecha de rendered_value |: "%m/%d/%Y" }} ;;
    # sql: DATE_FORMAT(${TABLE}.Fecha,’%m/%d/%Y’) ;;
    sql: (FORMAT_DATE('%Y%m%d', PARSE_DATE('%d/%m/%Y',  ${TABLE}.FECHA) ));;
+
+  primary_key: yes
  }
 
   dimension: pais {

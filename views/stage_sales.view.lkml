@@ -75,7 +75,7 @@ view: stage_sales {
     type: string
     sql: (FORMAT_TIMESTAMP('%Y%m%d', ${TABLE}.date_sale  ));;
 
-    primary_key: no
+    primary_key: yes
   }
 
 
