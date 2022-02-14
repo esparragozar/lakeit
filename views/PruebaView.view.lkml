@@ -1,4 +1,8 @@
 view: pruebaview {
+  dimension: categoria {
+    type: number
+    sql: ${TABLE}.Categoria ;;
+  }
 
 
 
