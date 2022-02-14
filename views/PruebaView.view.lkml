@@ -5,9 +5,7 @@ view: pruebaview {
   derived_table: {
     sql:
       SELECT
-    (FORMAT_DATE('%Y%m', PARSE_DATE('%d/%m/%Y',  resultado_modelo_demo.FECHA) )) AS resultado_modelo_demo_fecha_group_month_1,
-CAST(CURRENT_DATE() AS STRING FORMAT 'yyyymm')   AS dfecha_1,
-        (FORMAT_TIMESTAMP('%Y%m', stage_sales.date_sale )) AS stage_sales_date_sale_month
+  *
 
 FROM `DSET01_Analitica.Resultado_Modelo_Demo`
      AS resultado_modelo_demo
