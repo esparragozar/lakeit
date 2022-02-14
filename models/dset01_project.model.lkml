@@ -109,7 +109,8 @@ from: resultado_modelo_demo
   join:  Tiendas {
     from:  stage_shops
    # type: full_outer
-    sql_on: ${Tiendas.shop_id} = ${Ventas.shop_id};;
+    sql_on: ${Tiendas.shop_id} = ${Ventas.shop_id}
+    and ${Tiendas.shop_id} = ${Pronostico.tienda};;
 
     relationship: many_to_one
 
