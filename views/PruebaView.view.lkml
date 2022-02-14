@@ -17,7 +17,7 @@ LEFT JOIN `DSET01.stage_shops`
      AS stage_shops ON resultado_modelo_demo.Tienda = stage_shops.shop_id
 LEFT JOIN `DSET01.stage_sales`
      AS stage_sales ON (FORMAT_TIMESTAMP('%Y%m%d', stage_sales.date_sale )) = (FORMAT_DATE('%Y%m%d', PARSE_DATE('%d/%m/%Y',  resultado_modelo_demo.FECHA) ))
-group  by 1,2,3  ;;
+;;
   }
 
 
