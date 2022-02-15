@@ -1,4 +1,4 @@
-view: pruebaview {
+view: analitica {
 
 
   dimension: FECHA {
@@ -6,7 +6,21 @@ view: pruebaview {
     sql: FORMAT_DATE("%Y%m", ${TABLE}.C_FECHA)  ;;
   }
 
-
+  dimension_group: Grupo_fecha {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      month_name,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}.C_FECHA ;;
+  }
 
   dimension: C_FECHA {
     type: date

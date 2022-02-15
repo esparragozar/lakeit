@@ -14,7 +14,7 @@ persist_with: dset01_project_default_datagroup
 #explore: raw_shops {}
 #explore: raw_items {}
 #explore: raw_item_categories {}
-explore:  pruebaview{}
+explore:  analitica{}
 
 
 
