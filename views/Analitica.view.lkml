@@ -32,7 +32,7 @@ view: analitica {
     sql: ${TABLE}.mes ;;
   }
   dimension: anio {
-    type: string
+    type: number
     sql: ${TABLE}.anio ;;
   }
   dimension: tienda {
