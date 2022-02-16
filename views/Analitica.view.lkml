@@ -1,10 +1,7 @@
 view: analitica {
 
 
-  dimension: FECHA {
-    type: string
-    sql: FORMAT_DATE("%Y%m", ${TABLE}.C_FECHA)  ;;
-  }
+
 
   dimension_group: Grupo_fecha {
     type: time
@@ -22,149 +19,100 @@ view: analitica {
     sql: ${TABLE}.C_FECHA ;;
   }
 
-  dimension: C_FECHA {
-    type: date
-    sql: ${TABLE}.C_FECHA ;;
-  }
 
 
-
-
-  dimension: P_VENTAS {
+  dimension: id_aniomes {
     type: number
-    sql:  ${TABLE}.P_VENTAS ;;
-  }
-
-  dimension: V_ID_TIENDA {
-    type: number
-    sql:  ${TABLE}.V_ID_TIENDA ;;
-  }
-  dimension: V_ID_PRODUCTO {
-    type: number
-    sql:  ${TABLE}.V_ID_PRODUCTO ;;
-  }
-  dimension: V_VENTA {
-    type: number
-    sql:  ${TABLE}.V_VENTA ;;
+    sql: ${TABLE}.id_aniomes ;;
   }
 
 
-
-  dimension: T_NOMBRE {
+  dimension: mes {
     type: string
-    sql:  ${TABLE}.T_NOMBRE ;;
+    sql: ${TABLE}.mes ;;
   }
-  dimension: T_PAIS {
+  dimension: anio {
     type: string
-    sql:  ${TABLE}.T_PAIS ;;
+    sql: ${TABLE}.anio ;;
   }
-  dimension: T_CIUDAD {
+  dimension: tienda {
     type: string
-    sql:  ${TABLE}.T_CIUDAD ;;
+    sql: ${TABLE}.tienda ;;
   }
-  dimension: T_ZONA {
+  dimension: pais {
     type: string
-    sql:  ${TABLE}.T_ZONA ;;
+    sql: ${TABLE}.pais ;;
   }
-
-
-
-
-
-  dimension: PROD_NOMBRE {
+  dimension: categoria {
     type: string
-    sql:  ${TABLE}.PROD_NOMBRE ;;
+    sql: ${TABLE}.categoria ;;
   }
-  dimension: PROD_ID {
+  dimension: tot_pronos {
     type: number
-    sql:  ${TABLE}.PROD_ID ;;
+    sql: ${TABLE}.tot_pronos ;;
   }
-  dimension: PROD_ID_CAT {
+
+  dimension: tot_ventas {
     type: number
-    sql:  ${TABLE}.PROD_ID_CAT ;;
+    sql: ${TABLE}.tot_ventas ;;
   }
 
-
-
-
-
-  dimension: SUB_NOMBRE {
-    type: string
-    sql:  ${TABLE}.SUB_NOMBRE ;;
-  }
-  dimension: SUB_ID_PROD {
-    type: number
-    sql:  ${TABLE}.SUB_ID_PROD ;;
-  }
-  dimension: SUB_ID_CAT {
-    type: number
-    sql:  ${TABLE}.SUB_ID_CAT ;;
-  }
-
-
-
-  dimension: CAT_ID {
-    type: number
-    sql:  ${TABLE}.CAT_ID ;;
-  }
-  dimension: CAT_NOMBRE {
-    type: string
-    sql:  ${TABLE}.CAT_NOMBRE ;;
-  }
 
 
 
   derived_table: {
     sql:
 
+
+
 SELECT
 
-Calendar.fecha as C_FECHA,
-Calendar.mes as C_MES,
-Calendar.anio as C_ANIO,
-Pronos.Fecha as P_FECHA,
-Pronos.Pais as P_PAIS,
-Pronos.Tienda as P_TIENDA,
-Pronos.Categoria as P_CATEGORIA,
-Pronos.Ventas as P_VENTAS,
-Ventas.date_sale as V_FECHA,
-Ventas.shop_id as V_ID_TIENDA,
-Ventas.item_id as V_ID_PRODUCTO,
-Ventas.item_price as V_VENTA,
-Tienda.shop_name as T_NOMBRE,
-Tienda.shop_id as T_ID,
-Tienda.shop_country as T_PAIS,
-Tienda.shop_city as T_CIUDAD,
-Tienda.shop_zone as T_ZONA,
-Productos.item_name as PROD_NOMBRE,
-Productos.item_id as PROD_ID,
-Productos.category_id as PROD_ID_CAT,
-Subcat.item_category_name as SUB_NOMBRE,
-Subcat.item_category_id as SUB_ID_PROD,
-Subcat.main_category_id as SUB_ID_CAT,
-Cat.main_category_id as CAT_ID,
-Cat.main_category_name as CAT_NOMBRE
-
-FROM `DSET01.stage_dim_time` AS Calendar
+(FORMAT_TIMESTAMP('%Y%m', Ventas.date_sale )) as  id_aniomes,
+Calendar.mes,
+Calendar.anio,
+tiendas.shop_name as tienda,
+tiendas.shop_country as pais,
+cat.main_category_name as categoria,
+sum(ifnull(pronos.ventas,0)) as tot_pronos,
+sum(ventas.item_price) as tot_ventas
 
 
-LEFT JOIN `DSET01_Analitica.Resultado_Modelo_Demo`
-     AS Pronos ON FORMAT_DATE("%Y%m%d", Calendar.fecha) = (FORMAT_DATE('%Y%m%d', PARSE_DATE('%d/%m/%Y',  Pronos.FECHA) ))
+ FROM  `DSET01.stage_dim_time` as Calendar
 
-LEFT JOIN `DSET01.stage_sales`
-     AS Ventas ON (FORMAT_TIMESTAMP('%Y%m%d', Ventas.date_sale )) = FORMAT_DATE("%Y%m%d", Calendar.fecha)
+left join  `DSET01.stage_sales` as ventas
+on FORMAT_DATE("%Y%m%d", Calendar.fecha) = (FORMAT_TIMESTAMP('%Y%m%d', ventas.date_sale  ))
 
-LEFT JOIN `DSET01.stage_shops`
-     AS Tienda ON Pronos.Tienda = Tienda.shop_id AND Ventas.shop_id = Tienda.shop_id
+left join `DSET01.stage_shops` as tiendas
+on  ventas.shop_id = tiendas.shop_id
 
-LEFT JOIN `DSET01.stage_items`
-     AS Productos ON  Productos.item_id = Ventas.item_id
+left join `DSET01.stage_items` as prod
+on prod.item_id = ventas.item_id
 
-LEFT JOIN `DSET01.stage_item_categories`
-     AS Subcat ON  Productos.category_id = Subcat.main_category_id
+left join `DSET01.stage_item_categories` as sub
+on sub.item_category_id = prod.category_id
 
-LEFT JOIN `DSET01.stage_main_categories`
-     AS Cat ON  Cat.main_category_id = Subcat.main_category_id
+left join `DSET01.stage_main_categories` as cat
+on cat.main_category_id = sub.main_category_id
+
+
+
+left join `DSET01_Analitica.Resultado_Modelo_Demo` as Pronos
+on (FORMAT_DATE('%Y%m', PARSE_DATE('%d/%m/%Y',  Pronos.FECHA) )) = FORMAT_DATE("%Y%m", Calendar.fecha)
+and Pronos.Tienda = tiendas.shop_id
+and Pronos.pais = tiendas.shop_country
+and Pronos.Categoria = cat.main_category_id
+
+
+
+group by
+(FORMAT_TIMESTAMP('%Y%m', Ventas.date_sale )),
+ventas.shop_id,
+tiendas.shop_id,
+tiendas.shop_name,
+tiendas.shop_country,
+cat.main_category_name,
+Calendar.mes,
+Calendar.anio
 
 
 ;;
