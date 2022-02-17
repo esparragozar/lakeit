@@ -16,7 +16,7 @@ view: analitica {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.C_FECHA ;;
+    sql: ${TABLE}.id_aniomes ;;
   }
 
 
@@ -73,7 +73,7 @@ Calendar.anio,
 tiendas.shop_name as tienda,
 tiendas.shop_country as pais,
 cat.main_category_name as categoria,
-sum(ifnull(pronos.ventas,0)) as tot_pronos,
+ifnull(pronos.ventas,0) as tot_pronos,
 sum(ventas.item_price) as tot_ventas
 
 
@@ -102,17 +102,17 @@ and Pronos.Tienda = tiendas.shop_id
 and Pronos.pais = tiendas.shop_country
 and Pronos.Categoria = cat.main_category_id
 
+where Calendar.anio = 2021 and (FORMAT_TIMESTAMP('%Y%m', Ventas.date_sale )) is not null
 
 
 group by
 (FORMAT_TIMESTAMP('%Y%m', Ventas.date_sale )),
-ventas.shop_id,
-tiendas.shop_id,
+Calendar.mes,
+Calendar.anio,
 tiendas.shop_name,
 tiendas.shop_country,
 cat.main_category_name,
-Calendar.mes,
-Calendar.anio
+pronos.ventas
 
 
 ;;
